@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, User!</h1>
+    <h2>Your Memberships:</h2>
+    <ul>
+        {% for membership in memberships %}
+            <li>{{ membership.duration }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

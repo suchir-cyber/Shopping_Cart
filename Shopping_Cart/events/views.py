@@ -20,8 +20,7 @@ def add_product(request):
             return redirect('vendor_dashboard')
     else:
         form = ProductForm()
-    return render(request ```python
-, 'events/add_product.html', {'form': form})
+    return render(request, 'events/add_product.html', {'form': form})
 
 @login_required
 def user_dashboard(request):

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register Vendor</title>
+</head>
+<body>
+    <h1>Register as Vendor</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        {{ vendor_form.as_p }}
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
