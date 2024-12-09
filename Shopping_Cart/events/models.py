@@ -1,13 +1,17 @@
 from django.db import models
+from accounts.models import Vendor
 from django.contrib.auth.models import User
 
-class Vendor(models.Model):
+
+class Product(models.Model):
+    vendor = models.ForeignKey(Vendor, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
-    email = models.EmailField()
-    password = models.CharField(max_length=100)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    image = models.ImageField(upload_to='products/')
 
     def __str__(self):
         return self.name
+
 
 class Membership(models.Model):
     DURATION_CHOICES = [
@@ -20,12 +24,3 @@ class Membership(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.duration}"
-
-class Product(models.Model):
-    vendor = models.ForeignKey(Vendor, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    image = models.ImageField(upload_to='products/')
-
-    def __str__(self):
-        return self.name
