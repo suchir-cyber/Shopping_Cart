@@ -1,10 +1,8 @@
 from django.urls import path
-from .views import add_membership, update_membership, membership_list, add_product, product_list
+from .views import vendor_dashboard, add_product, user_dashboard
 
 urlpatterns = [
-    path('memberships/add/', add_membership, name='add_membership'),
-    path('memberships/update/<int:membership_id>/', update_membership, name='update_membership'),
-    path('memberships/', membership_list, name='membership_list'),
-    path('products/add/', add_product, name='add_product'),
-    path('products/', product_list, name='product_list'),
+    path('vendor/dashboard/', vendor_dashboard, name='vendor_dashboard'),
+    path('vendor/add_product/', add_product, name='add_product'),
+    path('user/dashboard/', user_dashboard, name='user_dashboard'),
 ]
